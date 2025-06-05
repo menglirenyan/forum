@@ -1,0 +1,9 @@
+com\example\forum\entity\LoginRequest.class
+com\example\forum\entity\LoginResponse$LoginResponseBuilder.class
+com\example\forum\ForumApplication.class
+com\example\forum\entity\LoginResponse.class
+com\example\forum\entity\User.class
+com\example\forum\repository\UserRepository.class
+com\example\forum\service\UserService.class
+com\example\forum\controller\UserController.class
+com\example\forum\config\CorsConfig.class
