@@ -6,6 +6,8 @@ import com.example.forum.entity.LoginRequest;
 import com.example.forum.entity.LoginResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.Collections;
+import java.util.Map;;
 
 @RestController
 @RequestMapping("/api") // 接口统一前缀
@@ -38,14 +40,15 @@ public class UserController {
         this.userService = userService;
     }
 
-    // 注册接口：POST /api/register
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody User user) {
+    public ResponseEntity<Map<String, String>> register(@RequestBody User user) {
         boolean isSuccess = userService.register(user);
         if (isSuccess) {
-            return ResponseEntity.ok("注册成功");
+            // 成功：统一状态和消息字段
+            return ResponseEntity.ok(Collections.singletonMap("message", "注册成功"));
         } else {
-            return ResponseEntity.badRequest().body("用户名已存在");
+            // 失败：使用相同的 "message" 字段（而非 "error"）
+            return ResponseEntity.badRequest().body(Collections.singletonMap("message", "用户名已存在"));
         }
     }
 }

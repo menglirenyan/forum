@@ -4,7 +4,6 @@ import com.example.forum.entity.User;
 import com.example.forum.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; // 加密依赖
 import org.springframework.stereotype.Service;
-import java.util.Optional;
 
 @Service
 public class UserService {
